@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import controller.HomeController?>
+
+<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <Pane layoutX="16.0" layoutY="14.0" prefHeight="163.0" prefWidth="589.0" style="-fx-background-color: #777777;">
+         <children>
+            <Label layoutX="36.0" layoutY="19.0" prefHeight="125.0" prefWidth="282.0" text="Số hộ khẩu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbSoHoKhau" layoutX="360.0" layoutY="47.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="16.0" layoutY="219.0" prefHeight="163.0" prefWidth="589.0" style="-fx-background-color: #777777;">
+         <children>
+            <Label layoutX="27.0" layoutY="6.0" prefHeight="125.0" prefWidth="325.0" text="Số khoản thu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbSoKhoanThu" layoutX="381.0" layoutY="34.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Label layoutX="435.0" layoutY="559.0" text="\@Copyright Nhóm15" />
+   </children>
+</AnchorPane>
+
+<!--<?import javafx.scene.chart.LineChart?>-->
+<!--<?import javafx.scene.chart.CategoryAxis?>-->
+<!--<?import javafx.scene.chart.NumberAxis?>-->
+<!--<VBox spacing="10" prefWidth="800" prefHeight="600" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">-->
+
+<!--   &lt;!&ndash; Thanh menu trên cùng &ndash;&gt;-->
+<!--   <HBox spacing="10" style="-fx-padding: 10; -fx-border-color: black; -fx-border-width: 0 0 1 0;">-->
+<!--      <Button fx:id="btnTrangChu" text="Trang chủ" onAction="#setTrangChu" />-->
+<!--      <Button fx:id="btnNhanKhau" text="Cư dân" onAction="#setNhanKhau" />-->
+<!--      <Button fx:id="btnHoKhau" text="Căn hộ" onAction="#setHoKhau" />-->
+<!--      <Button fx:id="btnKhoanPhi" text="Khoản thu" onAction="#setKhoanPhi" />-->
+<!--      <Button fx:id="btnDongPhi" text="Thống kê" onAction="#setDongPhi" />-->
+<!--      <Button fx:id="btnThongKe" text="Cài đặt" onAction="#setThongKe" />-->
+<!--      <Region HBox.hgrow="ALWAYS" />-->
+<!--      <HBox spacing="5">-->
+<!--&lt;!&ndash;         <Button fx:id="btnBack" text="←" onAction="#onBackSearch" />&ndash;&gt;-->
+<!--&lt;!&ndash;         <TextField fx:id="txtTimKiem" promptText="Tìm kiếm" />&ndash;&gt;-->
+<!--&lt;!&ndash;         <Button fx:id="btnClearSearch" text="X" onAction="#onClearSearch" />&ndash;&gt;-->
+<!--         <Button text="←" />-->
+<!--         <TextField promptText="Tìm kiếm" />-->
+<!--         <Button text="X" />-->
+<!--      </HBox>-->
+<!--   </HBox>-->
+
+<!--   &lt;!&ndash; Nội dung chính &ndash;&gt;-->
+<!--   <HBox spacing="10" style="-fx-padding: 10;" prefHeight="500">-->
+
+<!--      &lt;!&ndash; Các card tổng quan bên trái &ndash;&gt;-->
+<!--      <VBox spacing="10" prefWidth="400">-->
+<!--         <HBox spacing="20">-->
+<!--            <VBox style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;" prefWidth="120" alignment="TOP_LEFT">-->
+<!--               <Label text="Căn hộ" style="-fx-font-weight: bold;" />-->
+<!--               <Label text="Tổng số: 10" />-->
+<!--               <Button text="Xem tất cả" />-->
+<!--            </VBox>-->
+<!--            <VBox style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;" prefWidth="120" alignment="TOP_LEFT">-->
+<!--               <Label text="Cư dân" style="-fx-font-weight: bold;" />-->
+<!--               <Label text="Tổng số: 10" />-->
+<!--               <Button text="Xem tất cả" />-->
+<!--            </VBox>-->
+<!--            <VBox style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;" prefWidth="120" alignment="TOP_LEFT">-->
+<!--               <Label text="Khoản thu" style="-fx-font-weight: bold;" />-->
+<!--               <Label text="Tổng số: 10" />-->
+<!--               <Button text="Xem tất cả" />-->
+<!--            </VBox>-->
+<!--         </HBox>-->
+
+<!--         &lt;!&ndash; Biểu đồ lịch sử thu phí &ndash;&gt;-->
+<!--         <LineChart fx:id="paymentHistoryChart" title="Lịch sử thu phí" prefHeight="250" prefWidth="380">-->
+<!--            <xAxis>-->
+<!--               <CategoryAxis label="Ngày" />-->
+<!--            </xAxis>-->
+<!--            <yAxis>-->
+<!--               <NumberAxis label="Số tiền" />-->
+<!--            </yAxis>-->
+<!--         </LineChart>-->
+<!--      </VBox>-->
+
+<!--      &lt;!&ndash; Các phần thông tin bên phải &ndash;&gt;-->
+<!--      <VBox spacing="10" prefWidth="200">-->
+<!--         <VBox style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">-->
+<!--            <Label text="Các khoản thu mới cập nhật" style="-fx-font-weight: bold;" />-->
+<!--            <HBox spacing="10" alignment="CENTER_LEFT">-->
+<!--               <Label text="Khoản thu 1" />-->
+<!--               <Button text="500" />-->
+<!--            </HBox>-->
+<!--            <HBox spacing="10" alignment="CENTER_LEFT">-->
+<!--               <Label text="Khoản thu 2" />-->
+<!--               <Button text="750" />-->
+<!--            </HBox>-->
+<!--            <HBox spacing="10" alignment="CENTER_LEFT">-->
+<!--               <Label text="Khoản thu 3" />-->
+<!--               <Button text="1000" />-->
+<!--            </HBox>-->
+<!--         </VBox>-->
+
+<!--         <VBox style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 10;">-->
+<!--            <Label text="Biến động dân cư" style="-fx-font-weight: bold;" />-->
+<!--            <HBox spacing="10" alignment="CENTER_LEFT">-->
+<!--               <Label text="Căn hộ 1" />-->
+<!--               <Label text="-2" style="-fx-background-color: lightgray; -fx-padding: 3 8 3 8; -fx-border-radius: 15; -fx-background-radius: 15;" />-->
+<!--            </HBox>-->
+<!--            <HBox spacing="10" alignment="CENTER_LEFT">-->
+<!--               <Label text="Căn hộ 2" />-->
+<!--               <Label text="+3" style="-fx-background-color: lightgray; -fx-padding: 3 8 3 8; -fx-border-radius: 15; -fx-background-radius: 15;" />-->
+<!--            </HBox>-->
+<!--            <HBox spacing="10" alignment="CENTER_LEFT">-->
+<!--               <Label text="Căn hộ 3" />-->
+<!--               <Label text="-1" style="-fx-background-color: lightgray; -fx-padding: 3 8 3 8; -fx-border-radius: 15; -fx-background-radius: 15;" />-->
+<!--            </HBox>-->
+<!--         </VBox>-->
+<!--      </VBox>-->
+<!--   </HBox>-->
+
+<!--   &lt;!&ndash; Nút tác vụ dưới cùng &ndash;&gt;-->
+<!--   <HBox spacing="20" alignment="CENTER" style="-fx-padding: 10;">-->
+<!--      <Button text="Tạo khoản thu" />-->
+<!--      <Button text="Thu phí" />-->
+<!--      <Button text="Xuất báo cáo" />-->
+<!--   </HBox>-->
+
+<!--</VBox>-->
+

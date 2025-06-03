@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../source/login.css" styleClass="root"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;">
+         <children>
+
+            <!-- Hình tròn bên trái (avatar nền trắng) -->
+            <AnchorPane>
+               <!-- Hình tròn làm clip -->
+               <Circle fx:id="clipCircle" centerX="200" centerY="300" radius="135" />
+
+               <!-- Ảnh avatar -->
+               <ImageView fx:id="avatarImage" layoutX="65" layoutY="165" fitWidth="270" fitHeight="270"
+                          preserveRatio="true">
+                  <clip>
+                     <Circle centerX="135" centerY="135" radius="135"/>
+                  </clip>
+                  <Image url="@../source/avatar.jpg"/>
+               </ImageView>
+            </AnchorPane>
+
+            <!-- Form đăng nhập -->
+            <AnchorPane layoutX="400.0" layoutY="150.0" prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: transparent;">
+               <children>
+
+                  <!-- Tiêu đề -->
+                  <Label layoutX="120.0" layoutY="0.0" text="Đăng nhập" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" />
+
+                  <!-- Label Email -->
+                  <Label layoutX="10.0" layoutY="50.0" text="Email" style="-fx-font-size: 14px; -fx-text-fill: white;"/>
+
+                  <!-- TextField Email -->
+                  <TextField fx:id="tfUsername" layoutX="10.0" layoutY="80.0" prefHeight="40.0" prefWidth="330.0"
+                             promptText="******" style="-fx-font-size: 16px;" />
+
+                  <!-- Label Password -->
+                  <Label layoutX="10.0" layoutY="140.0" text="Password" style="-fx-font-size: 14px; -fx-text-fill: white;" />
+
+                  <!-- PasswordField -->
+                  <PasswordField fx:id="tfPassword" layoutX="10.0" layoutY="170.0" prefHeight="40.0" prefWidth="330.0"
+                                 promptText="******" style="-fx-font-size: 16px;" />
+
+                  <!-- Button Đăng nhập -->
+                  <Button fx:id="btnLogin" layoutX="10.0" layoutY="230.0" prefHeight="40.0" prefWidth="330.0"
+                          onAction="#Login" text="Đăng nhập" styleClass="btn-login" />
+
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
+
+
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+        <!--<?import javafx.scene.image.*?>-->
+        <!--<?import javafx.scene.paint.*?>-->
+        <!--<?import javafx.scene.text.*?>-->
+        <!--<?import javafx.scene.control.*?>-->
+        <!--<?import java.lang.*?>-->
+        <!--<?import javafx.scene.layout.*?>-->
+        <!--<?import javafx.scene.layout.AnchorPane?>-->
+
+        <!--<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom right, #89f7fe, #66a6ff);" stylesheets="@../source/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">-->
+        <!--   <children>-->
+        <!--      <Pane prefHeight="200.0" prefWidth="800.0" style="-fx-background-color: #5809d6;">-->
+        <!--         <children>-->
+        <!--            <AnchorPane layoutX="129.0" layoutY="87.0" prefHeight="414.0" prefWidth="547.0" styleClass="pane" stylesheets="@../source/login.css">-->
+        <!--               <children>-->
+        <!--                  <Button fx:id="btnLogin" layoutX="207.0" layoutY="318.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="115.0" styleClass="button2" stylesheets="@../source/login.css" text="Login" textFill="WHITE">-->
+        <!--                     <font>-->
+        <!--                        <Font name="System Bold" size="18.0" />-->
+        <!--                     </font>-->
+        <!--                  </Button>-->
+        <!--                  <PasswordField fx:id="tfPassword" layoutX="163.0" layoutY="227.0" prefHeight="39.0" prefWidth="300.0" promptText="Password" style="-fx-border-style: none;">-->
+        <!--                     <font>-->
+        <!--                        <Font size="20.0" />-->
+        <!--                     </font></PasswordField>-->
+        <!--                  <TextField fx:id="tfUsername" layoutX="163.0" layoutY="175.0" prefHeight="39.0" prefWidth="300.0" promptText="Username">-->
+        <!--                     <font>-->
+        <!--                        <Font size="20.0" />-->
+        <!--                     </font></TextField>-->
+        <!--                  <ImageView fitHeight="39.0" fitWidth="48.0" layoutX="114.0" layoutY="175.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">-->
+        <!--                     <image>-->
+        <!--                        <Image url="@../source/icon-username.png" />-->
+        <!--                     </image>-->
+        <!--                  </ImageView>-->
+        <!--                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="118.0" layoutY="229.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">-->
+        <!--                     <image>-->
+        <!--                        <Image url="@../source/icon-password.png" />-->
+        <!--                     </image>-->
+        <!--                  </ImageView>-->
+        <!--                  <Label layoutX="212.0" layoutY="71.0" text="LOGIN" textFill="#5809d6">-->
+        <!--                     <font>-->
+        <!--                        <Font name="System Bold" size="40.0" />-->
+        <!--                     </font>-->
+        <!--                  </Label>-->
+        <!--               </children>-->
+        <!--            </AnchorPane>-->
+        <!--         </children>-->
+        <!--      </Pane>-->
+        <!--   </children>-->
+        <!--</AnchorPane>-->
