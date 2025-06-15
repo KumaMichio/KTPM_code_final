@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../source/login.css" styleClass="root"
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <!-- Background image -->
       <Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;">
          <children>
+
+            <!-- Hình tròn bên trái (avatar nền trắng) -->
+            <AnchorPane>
+               <!-- Hình tròn làm clip -->
+               <Circle fx:id="clipCircle" centerX="200" centerY="300" radius="135" />
+
+               <!-- Ảnh avatar -->
+               <ImageView fx:id="avatarImage" layoutX="65" layoutY="165" fitWidth="270" fitHeight="270"
+                          preserveRatio="true">
+                  <clip>
+                     <Circle centerX="135" centerY="135" radius="135"/>
+                  </clip>
+                  <Image url="@../source/avatar.jpg"/>
+               </ImageView>
+            </AnchorPane>
+
             <!-- Form đăng nhập -->
             <AnchorPane layoutX="400.0" layoutY="150.0" prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: transparent;">
                <children>
@@ -41,8 +58,6 @@
       </Pane>
    </children>
 </AnchorPane>
-
-
 
 
 
