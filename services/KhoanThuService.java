@@ -12,7 +12,8 @@ import models.KhoanThuModel;
 
 
 public class KhoanThuService {
-	
+
+
 	// ckecked
 	public  boolean add(KhoanThuModel khoanThuModel) throws ClassNotFoundException, SQLException {
 		Connection connection = MysqlConnection.getMysqlConnection();
@@ -80,6 +81,27 @@ public class KhoanThuService {
 	    preparedStatement.close();
 	    connection.close();
 		return list;
+	}
+
+	public KhoanThuModel getKhoanThuById(int maKhoanThu) throws SQLException, ClassNotFoundException {
+		Connection connection = MysqlConnection.getMysqlConnection();
+		String query = "SELECT maKhoanThu, tenKhoanThu, soTien, loaiKhoanThu FROM khoan_thu WHERE maKhoanThu = ?";
+		PreparedStatement stmt = connection.prepareStatement(query);
+		stmt.setInt(1, maKhoanThu);
+
+		ResultSet rs = stmt.executeQuery();
+
+		// If there's a match, create and return a KhoanThuModel
+		if (rs.next()) {
+			int maKhoanThuResult = rs.getInt("maKhoanThu");
+			String tenKhoanThu = rs.getString("tenKhoanThu");
+			double soTien = rs.getDouble("soTien");
+			int loaiKhoanThu = rs.getInt("loaiKhoanThu");
+
+			return new KhoanThuModel(maKhoanThuResult, tenKhoanThu, soTien, loaiKhoanThu);
+		}
+
+		return null; // If no matching record is found
 	}
 	
 }

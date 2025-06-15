@@ -1,71 +1,99 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-
+/* Background color for the left menu pane */
 .pane {
-	-fx-background-color : #5809d6;
+    -fx-background-color: #1E90FF; /* Background color */
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
 }
 
-  
-.button1
-{
--fx-background-color : #393351;
--fx-background-radius :  30 0 0 30;
-}
-.button1:hover
-{
--fx-background-color : #524A7B ;
--fx-background-radius :  30 0 0 30;
-}
-.button1:pressed
-{
--fx-background-color : #2F2B43 ;
--fx-background-radius :  30 0 0 30;
+/* Style for button1 (Trang chủ) */
+.button1 {
+    -fx-background-color: #1030b1;
+    -fx-background-radius: 30 0 0 30;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-pref-height: 100px;
+    -fx-pref-width: 179px;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-transition: background-color 0.3s ease;
 }
 
-.button2
-{
--fx-background-color :  #4227b8;
--fx-background-radius :  20;
-}
-.button2:hover
-{
--fx-background-color : #524A7B ;
--fx-background-radius :  20;
-}
-.button2:pressed
-{
--fx-background-color : #2F2B43 ;
--fx-background-radius :  20;
+.button1:hover {
+    -fx-background-color: #1E50b1;
+    -fx-background-radius: 30 0 0 30;
 }
 
-.button3
-{
-    -fx-background-color : #4227b8;
-    -fx-background-radius :  0 0 0 0;
-}
-.button3:hover
-{
-    -fx-background-color : #524A7B ;
-}
-.button3:pressed
-{
-    -fx-background-color : #2F2B43 ;
+.button1:pressed {
+    -fx-background-color: #003366;
+    -fx-background-radius: 30 0 0 30;
 }
 
-.button4
-{
-    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
-    -fx-background-radius :  30 30 30 30;
-}
-.button4:hover
-{
-    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
-    -fx-background-radius :  30 30 30 30;
-}
-.button4:pressed
-{
-    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
-    -fx-background-radius :  30 30 30 30;
+/* Style for button2 (Nhân khẩu) */
+.button2 {
+    -fx-background-color: #4227b8;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 179px;
+    -fx-padding: 10px;
 }
 
+.button2:hover {
+    -fx-background-color: #524A7B;
+    -fx-background-radius: 20;
+}
 
+.button2:pressed {
+    -fx-background-color: #2F2B43;
+    -fx-background-radius: 20;
+}
+
+/* Style for button3 (Hộ khẩu, Khoản phí, Đóng phí, Thống kê) */
+.button3 {
+    -fx-background-color: #4227b8;
+    -fx-background-radius: 0 0 0 0;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 179px;
+    -fx-padding: 10px;
+}
+
+.button3:hover {
+    -fx-background-color: #524A7B;
+}
+
+.button3:pressed {
+    -fx-background-color: #2F2B43;
+}
+
+/* Style for button4 (with gradient background) */
+.button4 {
+    -fx-background-color: linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius: 30 30 30 30;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 179px;
+    -fx-padding: 10px;
+}
+
+.button4:hover {
+    -fx-background-color: linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-radius: 30 30 30 30;
+}
+
+.button4:pressed {
+    -fx-background-color: linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius: 30 30 30 30;
+}
 

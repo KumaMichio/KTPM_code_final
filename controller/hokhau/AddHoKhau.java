@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+
 import models.ChuHoModel;
 import models.HoKhauModel;
 import models.NhanKhauModel;
@@ -22,134 +23,223 @@ import services.NhanKhauService;
 import services.QuanHeService;
 
 public class AddHoKhau {
-	@FXML
-	private TextField tfMaHoKhau;
-	@FXML
-	private TextField tfDiaChi;
-	@FXML
-	private TextField tfMaChuHo;
-	@FXML
-	private TextField tfTenChuHo;
-	@FXML
-	private TextField tfTuoi;
-	@FXML
-	private TextField tfCMND;
-	@FXML
-	private TextField tfSoDienThoai;
+	@FXML private TextField tfMaHoKhau;
+	@FXML private TextField tfDiaChi;
+	@FXML private TextField tfMaChuHo;
+	@FXML private TextField tfTenChuHo;
+	@FXML private TextField tfTuoi;
+	@FXML private TextField tfCMND;
+	@FXML private TextField tfSoDienThoai;
+
+//	@FXML
+//	public void addHoKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
+//		// khai bao mot mau de so sanh
+//		Pattern pattern;
+//
+//		// kiem tra maHo nhap vao
+//		// maHo la day so tu 1 toi 11 chu so
+//		pattern = Pattern.compile("\\d{1,11}");
+//		if (!pattern.matcher(tfMaHoKhau.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào mã hộ khẩu hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//
+//		// kiem tra maHo co bi trung voi maHo nao da ton tai truoc do hay khong
+//		List<HoKhauModel> listHoKhauModels = new HoKhauService().getListHoKhau();
+//		for(HoKhauModel hokhau : listHoKhauModels) {
+//			if (hokhau.getMaHo() == Integer.parseInt(tfMaHoKhau.getText())) {
+//				Alert alert = new Alert(AlertType.WARNING, "Mã hộ bị trùng với một hộ khác!", ButtonType.OK);
+//				alert.setHeaderText(null);
+//				alert.showAndWait();
+//				return;
+//			}
+//		}
+//
+//		// kiem tra dia chi nhap vao
+//		// dia chi nhap vao la 1 chuoi t 1 toi 30 ki tu
+//		if (tfDiaChi.getText().length() >= 50 || tfDiaChi.getText().length() <= 1) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 địa chỉ hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//
+//		// kiem tra id nhan khau nhap vao
+//		// id la day so tu 1 toi 11 chu so
+//		pattern = Pattern.compile("\\d{1,11}");
+//		if (!pattern.matcher(tfMaChuHo.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào mã nhân khẩu hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//		// kiem tra ID them moi co bi trung voi nhung ID da ton tai hay khong
+//		List<NhanKhauModel> listNhanKhauModels = new NhanKhauService().getListNhanKhau();
+//		listNhanKhauModels.stream().forEach(nhankhau -> {
+//			if (nhankhau.getId() == Integer.parseInt(tfMaChuHo.getText())) {
+//				Alert alert = new Alert(AlertType.WARNING, "ID bị trùng với một người khác!", ButtonType.OK);
+//				alert.setHeaderText(null);
+//				alert.showAndWait();
+//				return;
+//			}
+//		});
+//
+//		// kiem tra ten nhap vao
+//		// ten nhap vao la chuoi tu 1 toi 50 ki tu
+//		if (tfTenChuHo.getText().length() >= 50 || tfTenChuHo.getText().length() <= 1) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 tên hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//
+//		// kiem tra tuoi nhap vao
+//		// tuoi nhap vao nhieu nhat la 1 so co 3 chu so
+//		pattern = Pattern.compile("\\d{1,3}");
+//		if (!pattern.matcher(tfTuoi.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//
+//		// kiem tra cmnd nhap vao
+//		// cmnd nhap vao phai la mot day so tu 1 toi 20 so
+//		pattern = Pattern.compile("\\d{1,20}");
+//		if (!pattern.matcher(tfCMND.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào CMND hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//
+//		// kiem tra sdt nhap vao
+//		// SDT nhap vao phai khong chua chu cai va nho hon 15 chu so
+//		pattern = Pattern.compile("\\d{1,15}");
+//		if (!pattern.matcher(tfSoDienThoai.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào SĐT hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
+//
+//		// ghi nhan cac gia tri khi tat ca deu hop le
+//		int maHo = Integer.parseInt(tfMaHoKhau.getText());
+//		String diaChi = tfDiaChi.getText();
+//		int maChuHo = Integer.parseInt(tfMaChuHo.getText());
+//		String tenChuHo = tfTenChuHo.getText();
+//		int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
+//		String cmndChuHo = tfCMND.getText();
+//		String sdtChuHo = tfSoDienThoai.getText();
+//
+//		HoKhauModel hoKhauModel = new HoKhauModel(maHo, 0, diaChi);
+//		NhanKhauModel nhanKhauModel = new NhanKhauModel(maChuHo, cmndChuHo, tenChuHo, tuoiChuHo, sdtChuHo);
+//
+//		new HoKhauService().add(hoKhauModel);
+//		new NhanKhauService().add(nhanKhauModel);
+//		new QuanHeService().add(new QuanHeModel(maHo,maChuHo,"Là chủ hộ"));
+//		new ChuHoService().add(new ChuHoModel(maHo, maChuHo));
+//
+//		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+//        stage.close();
+//	}
 
 	@FXML
 	public void addHoKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
-		// khai bao mot mau de so sanh
 		Pattern pattern;
 
-		// kiem tra maHo nhap vao
-		// maHo la day so tu 1 toi 11 chu so
+		// Validate Mã Hộ Khẩu
 		pattern = Pattern.compile("\\d{1,11}");
 		if (!pattern.matcher(tfMaHoKhau.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào mã hộ khẩu hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+			showAlert("Hãy nhập vào mã hộ khẩu hợp lệ!");
 			return;
 		}
-		
-		// kiem tra maHo co bi trung voi maHo nao da ton tai truoc do hay khong
-		List<HoKhauModel> listHoKhauModels = new HoKhauService().getListHoKhau();
-		for(HoKhauModel hokhau : listHoKhauModels) {
-			if (hokhau.getMaHo() == Integer.parseInt(tfMaHoKhau.getText())) {
-				Alert alert = new Alert(AlertType.WARNING, "Mã hộ bị trùng với một hộ khác!", ButtonType.OK);
-				alert.setHeaderText(null);
-				alert.showAndWait();
+
+		int maHo = Integer.parseInt(tfMaHoKhau.getText());
+		List<HoKhauModel> hoKhauList = new HoKhauService().getListHoKhau();
+		for (HoKhauModel hoKhau : hoKhauList) {
+			if (hoKhau.getMaHo() == maHo) {
+				showAlert("Mã hộ bị trùng với một hộ khác!");
 				return;
 			}
 		}
 
-		// kiem tra dia chi nhap vao
-		// dia chi nhap vao la 1 chuoi t 1 toi 30 ki tu
-		if (tfDiaChi.getText().length() >= 50 || tfDiaChi.getText().length() <= 1) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 địa chỉ hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+		// Validate Địa Chỉ
+		String diaChi = tfDiaChi.getText();
+		if (diaChi.length() < 2 || diaChi.length() > 50) {
+			showAlert("Hãy nhập vào 1 địa chỉ hợp lệ!");
 			return;
 		}
 
-		// kiem tra id nhan khau nhap vao
-		// id la day so tu 1 toi 11 chu so
-		pattern = Pattern.compile("\\d{1,11}");
+		// Validate Mã Chủ Hộ
 		if (!pattern.matcher(tfMaChuHo.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào mã nhân khẩu hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+			showAlert("Hãy nhập vào mã nhân khẩu hợp lệ!");
 			return;
 		}
-		// kiem tra ID them moi co bi trung voi nhung ID da ton tai hay khong
-		List<NhanKhauModel> listNhanKhauModels = new NhanKhauService().getListNhanKhau();
-		listNhanKhauModels.stream().forEach(nhankhau -> {
-			if (nhankhau.getId() == Integer.parseInt(tfMaChuHo.getText())) {
-				Alert alert = new Alert(AlertType.WARNING, "ID bị trùng với một người khác!", ButtonType.OK);
-				alert.setHeaderText(null);
-				alert.showAndWait();
+
+		int maChuHo = Integer.parseInt(tfMaChuHo.getText());
+		List<NhanKhauModel> nhanKhauList = new NhanKhauService().getListNhanKhau();
+		for (NhanKhauModel nk : nhanKhauList) {
+			if (nk.getId() == maChuHo) {
+				showAlert("ID bị trùng với một người khác!");
 				return;
 			}
-		});
+		}
 
-		// kiem tra ten nhap vao
-		// ten nhap vao la chuoi tu 1 toi 50 ki tu
-		if (tfTenChuHo.getText().length() >= 50 || tfTenChuHo.getText().length() <= 1) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 tên hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+		// Validate Tên Chủ Hộ
+		String tenChuHo = tfTenChuHo.getText();
+		if (tenChuHo.length() < 2 || tenChuHo.length() > 50) {
+			showAlert("Hãy nhập vào 1 tên hợp lệ!");
 			return;
 		}
 
-		// kiem tra tuoi nhap vao
-		// tuoi nhap vao nhieu nhat la 1 so co 3 chu so
+		// Validate Tuổi
 		pattern = Pattern.compile("\\d{1,3}");
 		if (!pattern.matcher(tfTuoi.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+			showAlert("Hãy nhập vào tuổi hợp lệ!");
 			return;
 		}
 
-		// kiem tra cmnd nhap vao
-		// cmnd nhap vao phai la mot day so tu 1 toi 20 so
+		// Validate CMND
 		pattern = Pattern.compile("\\d{1,20}");
 		if (!pattern.matcher(tfCMND.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào CMND hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+			showAlert("Hãy nhập vào CMND hợp lệ!");
 			return;
 		}
 
-		// kiem tra sdt nhap vao
-		// SDT nhap vao phai khong chua chu cai va nho hon 15 chu so
+		// Validate SĐT
 		pattern = Pattern.compile("\\d{1,15}");
 		if (!pattern.matcher(tfSoDienThoai.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào SĐT hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
+			showAlert("Hãy nhập vào SĐT hợp lệ!");
 			return;
 		}
-		
-		// ghi nhan cac gia tri khi tat ca deu hop le
-		int maHo = Integer.parseInt(tfMaHoKhau.getText());
-		String diaChi = tfDiaChi.getText();
-		int maChuHo = Integer.parseInt(tfMaChuHo.getText());
-		String tenChuHo = tfTenChuHo.getText();
-		int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
+
+		// Ghi nhận dữ liệu khi hợp lệ
 		String cmndChuHo = tfCMND.getText();
 		String sdtChuHo = tfSoDienThoai.getText();
-		
+		int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
+
 		HoKhauModel hoKhauModel = new HoKhauModel(maHo, 0, diaChi);
 		NhanKhauModel nhanKhauModel = new NhanKhauModel(maChuHo, cmndChuHo, tenChuHo, tuoiChuHo, sdtChuHo);
-		
+
 		new HoKhauService().add(hoKhauModel);
 		new NhanKhauService().add(nhanKhauModel);
-		new QuanHeService().add(new QuanHeModel(maHo,maChuHo,"Là chủ hộ"));
+		new QuanHeService().add(new QuanHeModel(maHo, maChuHo, "Là chủ hộ"));
 		new ChuHoService().add(new ChuHoModel(maHo, maChuHo));
-		
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+
+		closeStage(event);
 	}
 
+	private void showAlert(String message) {
+		Alert alert = new Alert(AlertType.WARNING, message, ButtonType.OK);
+		alert.setHeaderText(null);
+		alert.showAndWait();
+	}
+
+	private void closeStage(ActionEvent event) {
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.close();
+	}
 }

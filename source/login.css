@@ -1,10 +1,12 @@
+/* Background image for the root container */
 .root {
-    -fx-background-image: url("blue_moon.jpg");
+    -fx-background-image: url("login-background.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
-/* Nền chính của pane chứa form */
+
+/* Form styling */
 .pane {
     -fx-background-color: white;
     -fx-background-radius: 12px;
@@ -12,122 +14,45 @@
     -fx-padding: 30px 40px;
 }
 
-/* Nút kiểu button1 (ví dụ nút bên trái hoặc riêng) */
-.button1 {
-    -fx-background-color: #393351;
-    -fx-background-radius: 30 0 0 30;
+/* Style for the login button */
+.btn-login {
+    -fx-background-color: #0078D7;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-padding: 10 20;
-    -fx-effect: dropshadow(three-pass-box, rgba(57,51,81,0.7), 4, 0, 0, 2);
-    -fx-transition: background-color 0.25s ease;
-}
-.button1:hover {
-    -fx-background-color: #524A7B;
-}
-.button1:pressed {
-    -fx-background-color: #2F2B43;
-}
-
-/* Nút chính button2 (nút Login trong FXML của bạn) */
-.button2 {
-    -fx-background-color: #5809d6;
-    -fx-background-radius: 20;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
     -fx-font-size: 16px;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+    -fx-padding: 10 30;
     -fx-cursor: hand;
-    -fx-padding: 10 25;
-    -fx-effect: dropshadow(three-pass-box, rgba(88,9,214,0.8), 8, 0, 0, 3);
     -fx-transition: background-color 0.3s ease;
 }
-.button2:hover {
-    -fx-background-color: #7a35e6;
-}
-.button2:pressed {
-    -fx-background-color: #2F2B43;
+
+.btn-login:hover {
+    -fx-background-color: #585858; /* Darker gray on hover */
 }
 
-/* Nút button3 và button4 giữ nguyên với hover/pressed tương tự */
+.btn-login:pressed {
+    -fx-background-color: #333333; /* Very dark gray when pressed */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 6, 0, 0, 2);
+}
 
-/* Cải tiến text-field */
-.text-field {
-    -fx-background-color: white;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
-    -fx-border-color: transparent;
-    -fx-border-width: 2;
-    -fx-padding: 10 14;
+/* Input field styling (TextField and PasswordField) */
+.text-field, .password-field {
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 10 15;
     -fx-font-size: 16px;
     -fx-text-fill: #333333;
-    -fx-prompt-text-fill: #999999;
     -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.05), 2, 0, 0, 1);
     -fx-transition: border-color 0.25s ease;
 }
-.text-field:focused {
-    -fx-border-color: #5809d6;
-    -fx-background-color: white;
-    -fx-prompt-text-fill: #5809d6;
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #0078D7;
 }
 
-/* PasswordField tương tự TextField */
-.password-field {
-    -fx-background-color: white;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
-    -fx-border-color: transparent;
-    -fx-border-width: 2;
-    -fx-padding: 10 14;
-    -fx-font-size: 16px;
-    -fx-text-fill: #333333;
-    -fx-prompt-text-fill: #999999;
-    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.05), 2, 0, 0, 1);
-    -fx-transition: border-color 0.25s ease;
-}
-.password-field:focused {
-    -fx-border-color: #5809d6;
-    -fx-background-color: white;
-    -fx-prompt-text-fill: #5809d6;
-}
-
-/* Label LOGIN - lớn và màu tím đậm */
+/* Label styling */
 .label {
     -fx-text-fill: #5809d6;
     -fx-font-weight: bold;
     -fx-font-size: 42px;
 }
-
-/* Icon mờ */
-.image-view {
-    -fx-opacity: 0.85;
-}
-
-/* Thêm hiệu ứng khi hover lên hình ảnh (nếu cần) */
-.image-view:hover {
-    -fx-opacity: 0.6;
-    -fx-cursor: hand;
-}
-
-.btn-login {
-    -fx-background-color: gray;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-border-color: #0078D7;
-    -fx-border-width: 2;
-    -fx-cursor: hand;
-    -fx-background-radius: 6px;
-    -fx-transition: background-color 0.3s ease;
-}
-
-.btn-login:hover {
-    -fx-background-color: #585858; /* Màu xám đậm hơn khi hover */
-}
-
-.btn-login:pressed {
-    -fx-background-color: #333333; /* Màu xám rất đậm khi nhấn */
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 6, 0, 0, 2);
-}
-
-
-

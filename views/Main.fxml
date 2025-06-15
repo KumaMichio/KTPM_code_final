@@ -4,42 +4,105 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import controller.HomeController?>
+<?import javafx.geometry.Pos?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 
 <AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Pane layoutX="16.0" layoutY="14.0" prefHeight="163.0" prefWidth="589.0" style="-fx-background-color: #777777;">
+      <HBox layoutX="16.0" layoutY="20.0" spacing="10.0" alignment="CENTER">
          <children>
-            <Label layoutX="36.0" layoutY="19.0" prefHeight="125.0" prefWidth="282.0" text="Số hộ khẩu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-            </Label>
-            <Label fx:id="lbSoHoKhau" layoutX="360.0" layoutY="47.0" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-            </Label>
-         </children></Pane>
-      <Pane layoutX="16.0" layoutY="219.0" prefHeight="163.0" prefWidth="589.0" style="-fx-background-color: #777777;">
-         <children>
-            <Label layoutX="27.0" layoutY="6.0" prefHeight="125.0" prefWidth="325.0" text="Số khoản thu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-            </Label>
-            <Label fx:id="lbSoKhoanThu" layoutX="381.0" layoutY="34.0" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="48.0" />
-               </font>
-            </Label>
-         </children></Pane>
-      <Label layoutX="435.0" layoutY="559.0" text="" />
+            <!-- Số hộ khẩu -->
+            <Pane prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #3a3a3a; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 3);">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0" layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label text="Số hộ khẩu" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbSoHoKhau" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+
+            <!-- Số khoản thu -->
+            <Pane prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #3a3a3a; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 3);">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0" layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label text="Số khoản thu" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbSoKhoanThu" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+
+            <!-- Số nhân khẩu -->
+            <Pane prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #3a3a3a; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 3);">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0" layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <Label text="Số nhân khẩu" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbSoNhanKhau" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+
+      <!-- New label for Total Amount of Khoản Thu -->
+      <Label fx:id="lbTongTienKhoanThu" layoutX="16.0" layoutY="130.0" text="Tổng số tiền khoản thu" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+
+      <!-- Line Chart for Payment History -->
+      <LineChart fx:id="paymentHistoryChart" prefHeight="300.0" prefWidth="600.0" layoutX="16.0" layoutY="200.0">
+         <xAxis>
+            <CategoryAxis label="Ngày"/>
+         </xAxis>
+         <yAxis>
+            <NumberAxis label="Số tiền"/>
+         </yAxis>
+      </LineChart>
    </children>
 </AnchorPane>
 
-<!--<?import javafx.scene.chart.LineChart?>-->
+
+        <!-- Payment History Table -->
+
+
+
+
+
+        <!--<?import javafx.scene.chart.LineChart?>-->
 <!--<?import javafx.scene.chart.CategoryAxis?>-->
 <!--<?import javafx.scene.chart.NumberAxis?>-->
 <!--<VBox spacing="10" prefWidth="800" prefHeight="600" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">-->
